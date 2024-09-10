@@ -26,10 +26,10 @@ namespace PardisBeton.Controllers
                     mailMessage.Body = model.Message;
                     mailMessage.IsBodyHtml = false;
 
-                    // Send the email (replace with your SMTP settings)
-                    using (var smtpClient = new SmtpClient("mail.pardisbeton.com"))
+                    // Send the email 
+                    using (var smtpClient = new SmtpClient(""))
                     {
-                        smtpClient.Credentials = new System.Net.NetworkCredential("info@pardisbeton.com", "Pardis123456@=");
+                        smtpClient.Credentials = new System.Net.NetworkCredential("","");
                         smtpClient.Port = 25;
                         smtpClient.EnableSsl = true;
                         smtpClient.Send(mailMessage);
