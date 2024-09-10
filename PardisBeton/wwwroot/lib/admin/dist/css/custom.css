@@ -1,0 +1,22 @@
+﻿body {
+}
+
+/* Summernote */
+.note-dropdown-menu{
+    right:0!important;
+    left:auto!important;
+}
+
+.note-dimension-picker{
+    direction:ltr!important;
+}
+
+.note-dimension-display{
+    direction:ltr!important;
+}
+
+
+/* Data Table */
+.dtImage{
+    width:92px;
+}

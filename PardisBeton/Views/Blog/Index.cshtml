@@ -1,0 +1,114 @@
+﻿@using Model.ViewModels.Post
+
+@model PostCollectionViewModel
+
+@{
+    ViewData["Title"] = "نشریه پردیس بتن";
+}
+
+@section Head {
+
+}
+
+<!-- Start inner Page hero -->
+<section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+    <div class="overlay-photo-image-bg-blog parallax" data-bg-img="" data-bg-opacity="1"></div>
+    <div class="overlay-color" data-bg-opacity=".5"></div>
+    <div class="container">
+        <div class="hero-text-area centerd">
+            <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">نشریه پردیس بتن</h1>
+            <nav aria-label="breadcrumb ">
+                <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/"><i class="bi bi-house icon "></i>خانه</a></li>
+                    <li class="breadcrumb-item active">نشریه پردیس بتن</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- End inner Page hero -->
+<!-- Start blog-1-col-posts-->
+<section class="blog blog-home mega-section">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-12 col-xl-8 ">
+                <div class="posts-grid horizontal">
+                    <div class="row" id="posts-container">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-4 ">
+                <div class="blog-sidebar">
+                    <!--search box-->
+                    <div class="search sidebar-box">
+                        <form class="search-form" action="#">
+                            <input class="search-input" type="search" name="seach_form" placeholder="جستجو...">
+                            <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+                        </form>
+                    </div>
+                    <!--categories box-->
+                    <div class="cats sidebar-box bg-light">
+                        <h6 class="sidebar-box-title">
+                            دسته بندی ها:
+                        </h6>
+                        <ul class="sidebar-list cats-list  ">
+                            @foreach (var item in Model.CategoriesByCount)
+                            {
+                                <li class="cat-item"><a class="cat-link" href="#">@item.ToString().Split('/')[0]<span class="cat-count">@item.ToString().Split('/')[1]</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog-1-col-posts-->
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            loadPosts(1);
+
+
+        });
+
+        // تابع برای بارگذاری پست‌ها بر اساس شماره صفحه
+        function loadPosts(pageNumber) {
+            $.ajax({
+                url: '/Blog/GetPosts',
+                type: 'GET',
+                data: {
+                    pageNumber: pageNumber,
+                    pageSize: 5 // تعداد پست‌ها در هر صفحه
+                },
+                success: function (response) {
+                    $('#posts-container').html(response); // بارگذاری پست‌ها
+                    $('.pagination').html($(response).find('.pagination').html()); // بروزرسانی صفحه‌بندی
+
+
+                    moment.loadPersian({ usePersianDigits: true });
+                    $(".post-date").each(function () {
+                        var formattedDate = moment($(this).text()).format('dddd jD jMMMM jYYYY');
+                        $(this).text(formattedDate);
+                    });
+                },
+                error: function () {
+                    alert('خطا در بارگذاری پست‌ها');
+                }
+            });
+        };
+        $(document).on('click', '.ma-page-link', function (e) {
+            e.preventDefault();
+            var pageNumber = $(this).data('page');
+            loadPosts(pageNumber);
+
+            // اسکرول به بالای اولین پست
+            $('html, body').animate({
+                scrollTop: $("#posts-container").offset().top - 100
+            }, 500);
+        });
+    </script>
+
+}

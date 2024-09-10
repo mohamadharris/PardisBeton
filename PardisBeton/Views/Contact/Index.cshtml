@@ -1,0 +1,171 @@
+﻿@using Model.ViewModels.Contact
+
+@model ContactFormViewModel
+
+@{
+    ViewData["Title"] = "تماس با ما";
+}
+
+@section Head {
+
+}
+
+
+<!-- Start inner Page hero -->
+<section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+    <div class="overlay-photo-image-bg-contact parallax" data-bg-img="" data-bg-opacity="1"></div>
+    <div class="overlay-color" data-bg-opacity=".3"></div>
+    <div class="container">
+        <div class="hero-text-area centerd">
+            <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">تماس با پردیس بتن</h1>
+            <nav aria-label="breadcrumb ">
+                <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/"><i class="bi bi-house icon "></i>خانه</a></li>
+                    <li class="breadcrumb-item active">تماس با ما</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- End inner Page hero -->
+<!-- Start contact-us -->
+<section class="contact-us  mega-section  pb-0" id="contact-us">
+    <div class="container">
+        <section class="locations-section  mega-section ">
+           
+            <div class=" contact-info-panel ">
+                <div class="info-section ">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".4s ">
+                                <h4 class="location-title">دفتر فروش</h4>
+                                <div class="line-on-side "> </div>
+                                <p class="location-address">نوشهر، خیابان ستارخان، تقاطع غزالی</p>
+                                <div class="location-card  ">
+                                    <i class="flaticon-email icon"></i>
+                                    <div class="card-content">
+                                        <h6 class="content-title">ایمیل:</h6><a class="email link" href="mailto:sales@pardisbeton.com">sales@pardisbeton.com</a>
+                                    </div>
+                                </div>
+                                <div class="location-card  ">
+                                    <i class="flaticon-phone-call icon"></i>
+                                    <div class="card-content">
+                                        <h6 class="content-title">تلفن:</h6><a class="tel link" href="#0">01123445566</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+                                <h4 class="location-title">کارخانه نوشهر</h4>
+                                <div class="line-on-side "> </div>
+                                <p class="location-address">نوشهر، کمربندی، شهرک صنعتی شهید ذوالفقاری (آبندانک)</p>
+                                <div class="location-card  ">
+                                    <i class="flaticon-email icon"></i>
+                                    <div class="card-content">
+                                        <h6 class="content-title">ایمیل:</h6><a class="email link" href="mailto:info@pardisbeton.com">info@pardisbeton.com</a>
+                                    </div>
+                                </div>
+                                <div class="location-card  ">
+                                    <i class="flaticon-phone-call icon"></i>
+                                    <div class="card-content">
+                                        <h6 class="content-title">تلفن:</h6><a class="tel link" href="#0">09111914633 - 09116666114</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".8s">
+                                <h4 class="location-title">کارخانه تنکابن</h4>
+                                <div class="line-on-side "> </div>
+                                <p class="location-address">تنکابن ـ جاده نعمت آباد ـ روبروی سیرنگ</p>
+                                <div class="location-card  ">
+                                    <i class="flaticon-email icon"></i>
+                                    <div class="card-content">
+                                        <h6 class="content-title">ایمیل:</h6><a class="email link" href="mailto:info@pardisbeton.com">info@pardisbeton.com</a>
+                                    </div>
+                                </div>
+                                <div class="location-card  ">
+                                    <i class="flaticon-phone-call icon"></i>
+                                    <div class="card-content">
+                                        <h6 class="content-title">تلفن:</h6><a class="tel link" href="#0">09111914633 - 091166661097</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="map-section  elf-section">
+     
+        <div class="map-box  wow fadeInUp" data-wow-delay=".6s">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe class="map-iframe" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.7981710958221!2d51.507426151121905!3d36.639510881233974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8ea32430dd114d%3A0x2720a8f20e1262f8!2z2K_Zgdiq2LEg2YHYsdmI2LQg2b7Ysdiv24zYsyDYqNiq2YY!5e0!3m2!1sen!2saz!4v1725446673779!5m2!1sen!2saz"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <section class="contact-us-form-section  mega-section  ">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="contact-form-panel">
+                        <div class="sec-heading centered    ">
+                            <div class="content-area">
+                                <h3 class="    wow fadeInUp" data-wow-delay=".4s">پرسشی دارید؟ بپرسید تا پاسخ دهیم.</h3>
+                            </div>
+                        </div>
+                        <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                            <div class="custom-form-area input-boxed">
+                                <!--Form To have user messages-->
+                                <form class="main-form" id="contact-us-form" action="Contact/SendMessage" method="post">
+                                    <span class="done-msg"></span>
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="   input-wrapper">
+                                                <div class="   input-wrapper">
+                                                    <input class="text-input" id="user-name" asp-for="Name" name="Name" type="text" />
+                                                    <label class="input-label" for="user-name"> نام <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="   input-wrapper">
+                                                <input class="text-input" id="user-email" asp-for="Email" name="Email" type="email" />
+                                                <label class="input-label" for="user-email"> ایمیل <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="   input-wrapper">
+                                                <input class="text-input" id="msg-subject" asp-for="Subject" name="subject" type="text" />
+                                                <label class="input-label" for="msg-subject"> موضوع <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="   input-wrapper">
+                                                <textarea class=" text-input" id="msg-text" asp-for="Message" name="message"></textarea>
+                                                <label class="input-label" for="msg-text"> پیام شما <span class="req">*</span></label><span class="b-border"></span><i></i><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 submit-wrapper">
+                                            <button class=" btn-solid" id="submit-btn" type="submit" name="UserSubmit">ارسال پیام</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<!-- End contact-us -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

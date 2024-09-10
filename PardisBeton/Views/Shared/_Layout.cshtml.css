@@ -1,0 +1,81 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*fixing rows*/
+.row{
+    padding:0px;
+    margin:0px;
+}
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a {
+    color: #000000;
+}
+
+.bi-telephone {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer {
+    bottom: 0;
+    white-space: nowrap;
+}
+
+.footer .topSection{
+    
+}
+
+
+    .footer .bottomSection .footerLogo {
+        width: 80px !important;
+    }
+
+.navbar .navbar-nav .nav-item .nav-link {
+    color: #000000;
+}
+
+
+    .navbar .navbar-nav .nav-item .nav-link:hover {
+        color: #CE7832;
+        transition: 0.15s;
+    }
+
+
+@media (min-width: 800px) {
+    .navbar-collapse.collapse {
+        
+        text-align: left !important;
+    }
+}

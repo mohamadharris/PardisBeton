@@ -1,0 +1,209 @@
+﻿@using Model.Base
+
+@model BaseViewModel
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>پنل مدیریتی - @ViewBag.Title</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->    
+    <link rel="stylesheet" href="~/lib/admin/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->  
+    <link rel="stylesheet" href="~/lib/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/lib/admin/plugins/icheck-bootstrap/icheck-bootstrap.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/lib/admin/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/lib/admin/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/lib/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/lib/admin/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/lib/admin/plugins/summernote/summernote-bs4.min.css">
+    <!-- Custom css -->
+    <link href="~/lib/admin/dist/css/custom.css" rel="stylesheet" />
+    <!-- Fonts css -->
+    <link href="~/css/fonts.css" rel="stylesheet" />
+
+
+  
+
+  
+    @RenderSection("Head", required:false)
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="~/lib/admin/dist/img/HD_Grayscale_128x128.png" alt="Harris Devs Logo" height="96" width="96">
+        </div>
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                   <form action="/admin/dashboard/Logout" method="post">
+                        <button type="submit" class="nav-link border-0 bg-transparent" >
+                            <i class="fas fa-power-off"></i>
+                        </button>
+                        @Html.AntiForgeryToken() <!-- Add CSRF Token -->
+                    </form>
+                   
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="/admin" class="brand-link">
+                <img src="~/lib/admin/dist/img/HD_Grayscale_128x128.png" alt="Harris Devs Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">مدیریت وب سایت</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    صفحه خانه
+                                    <i class="left fas fa-angle-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/adminabout/summary" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>معرفی شرکت </p>
+                                    </a>
+                                </li>                          
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminAbout" class="nav-link">
+                                <i class="nav-icon fas fa-question"></i>
+                                <p>
+                                    درباره ما
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AdminAbout/Personnel" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    پرسنل شرکت
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/adminproject" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    پروژه ها                                    
+                                </p>
+                            </a>
+                        </li>      
+                        <li class="nav-item">
+                            <a href="/Admin/AdminPost" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    نشریه                                   
+                                </p>
+                            </a>
+                        </li>                   
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2019 - @DateTime.Now.Year <a href="https://tpjolge.ir">JOLGE Devs</a>.</strong>
+            All rights reserved.
+            <div class="float-left d-none d-sm-inline-block">
+                <b>Version</b> 2.0 RTL
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/lib/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/lib/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/lib/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/lib/admin/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/lib/admin/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/lib/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/lib/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/lib/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/lib/admin/plugins/moment/moment.min.js"></script>
+    <script src="~/lib/admin/plugins/daterangepicker/daterangepicker.js"></script>    
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/lib/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/lib/admin/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/lib/admin/plugins/summernote/CustomizeEditor.js?v=1.0"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/lib/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/lib/admin/dist/js/adminlte.js"></script>
+    <!-- Date-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-jalaali@0.9.2/build/moment-jalaali.js"></script>
+
+
+    @RenderSection("Scripts", required:false);
+</body>
+</html>

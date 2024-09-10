@@ -1,0 +1,241 @@
+﻿@{
+    ViewData["Title"] = "بتن آماده";
+}
+
+@section Head {
+
+
+}
+
+<!-- Hero section start -->
+<!-- Start  Page hero-->
+<section class="page-hero  d-flex align-items-center  " id="page-hero">
+    <div class="section-dotted-bg"></div>
+    <div class="animated-lines">
+        <span class="animated-line line-1"></span>
+        <span class="animated-line line-2"></span>
+        <span class="animated-line line-3"></span>
+        <span class="animated-line line-4"></span>
+        <span class="animated-line line-5"></span>
+        <span class="animated-line line-6"></span>
+        <span class="animated-line line-7"></span>
+        <span class="animated-line line-8"></span>
+        <span class="animated-line line-9"></span>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 ">
+                <!--Start of .hero-text-area-->
+                <div class="hero-text-area">
+                    <div class="hero-social-icons mb-3 ">
+                        <div class="sc-wrapper dir-row sc-flat">
+                            <ul class="sc-list">
+                                <li class="sc-item " title="Linkedin"><a class="sc-link" href="#0" title="لینکدین"><i class="fab fa-linkedin sc-icon"></i></a></li>
+                                <li class="sc-item " title="Telegram"><a class="sc-link" href="#0" title="تلگرام"><i class="fab fa-telegram sc-icon"></i></a></li>
+                                <li class="sc-item " title="instagram"><a class="sc-link" href="https://instagram.com/pardis.beton" title="اینستاگرام"><i class="fab fa-instagram sc-icon"></i></a></li>
+                                <li class="sc-item " title="X"><a class="sc-link" href="#0" title="ایکس"><i class="fab fa-x-twitter sc-icon"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="pre-title">خوش آمدید             </div>
+                            <h1 class="hero-title">
+                                بتن آماده
+                                <span class="featured-text">پردیس بتن</span><span class="design-element rounded-shape stripes"></span>
+                            </h1>
+                            <h2>
+                                نوشهر ـ تنکابن
+                            </h2>
+                        </div>
+                        <div class="col-10">
+                            <p class="hero-subtitle">
+                                با بیش از <span class="featured-text">10 سال </span>تجربه در زمینه تولید بتن آماده واقع در غرب مازندران.
+
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <div class="cta-links-area ">
+                                <a class="btn-outline cta-link cta-link-primary" href="#0">بیشتر بخوانید</a>
+                                <div class="play-btn-row-dir ">
+                                    <a class="video-link" href="/" role="button" title="play" data-fancybox="data-fancybox">
+                                        <div class="play-video-btn">
+                                            <div class="play-btn"> <i class="fas fa-play icon"></i></div>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of .hero-text-area-->
+            </div>
+            <!--start of .image-area -->
+            <div class="col-12   mx-md-auto col-lg-6 text-center mt-lg-0 mt-md-3" data-tilt>
+                <div class="hero-image-area mb-5 mb-lg-0">
+                    <div class="hero-img-wraper">
+
+                        <img class="img-fluid" src="~/images/home/slides/MainSlide.png" alt="" draggable="false">
+                        <div class="radar"></div>
+                        <div class="orbit">           </div>
+                    </div>
+                </div>
+            </div>
+            <!--End of .image-area -->
+        </div>
+    </div>
+</section>
+<!-- End  Page hero-->
+<!-- Hero section end -->
+<!-- Start first about div-->
+@await Component.InvokeAsync("About", new { viewName = "AboutSummary", selector = "summary" })
+
+
+<!--End first about div-->
+<!-- End  about Section-->
+<!-- Start  stats Section-->
+<section class="stats js-stats-counter mega-section mt-5 mb-5">
+
+    <div class="container">
+        <div class="stats-inner">
+            <div class="row ">
+                <!--Info One-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-project-management stat-icon"></i>
+                        <span class="stat-desc">بیش از</span><p class="stat-num "><span class="counter" data-from="10" data-to="100" data-speed="3000" data-refresh-interval="50"></span></p><span class="stat-desc">پروژه پایان یافته</span>
+                    </div>
+                </div>
+                <!--Info Two-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-content-management stat-icon"></i>
+                        <span class="stat-desc">ایجاد</span><p class="stat-num "><span class="counter" data-from="10" data-to="100" data-speed="3000" data-refresh-interval="50"></span></p><span class="stat-desc">فرصت شغلی</span>
+                    </div>
+                </div>
+                <!--Info Three-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-user stat-icon"></i>
+                        <span class="stat-desc">بیش از</span><p class="stat-num "><span class="counter" data-from="10" data-to="100" data-speed="100" data-refresh-interval="50"></span></p><span class="stat-desc">مشتری راضی</span>
+                    </div>
+                </div>
+                <!--Info Four-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-aim stat-icon"></i>
+                        <span class="stat-desc">بیش از</span><p class="stat-num "><span class="counter" data-from="10" data-to="10" data-speed="3000" data-refresh-interval="50"></span></p><span class="stat-desc">سال تجربه</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Random projects start -->
+<!-- Start  portfolio-slider Section-->
+<section class="portfolio mega-section   " id="portfolio">
+    <div class="container">
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">پروژه ها</span>
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">پروژه های پردیس بتن</h2>
+            </div>
+            <div class=" cta-area   wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid    " href="/projects">لیست پروژه ها<i class="bi bi-arrow-left icon "></i></a></div>
+        </div>
+        <div class="portfolio-wrapper  ">
+
+            <div class="portfolio-group wow fadeIn" data-wow-delay=".4s">
+                <div class="row ">
+
+                    @await Component.InvokeAsync("Project", new { randomProjectsCount = 9 })
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  portfolio-slider Section-->
+<!-- Random projects end -->
+<!-- Start  our-clients Section-->
+<section class="our-clients  mega-section   wow fadeInUp pt-5 pb-5" id="our-clients" data-wow-delay="0.2s">
+    <div class="container">
+        <div class="sec-heading   centered ">
+            <div class="content-area">
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"></h2>
+            </div>
+        </div>
+        <div class=" clients-logos ">
+            <!--Swiper-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper clients-logo-wrapper wow fadeIn " data-wow-delay=".02s">
+                    <!-- every client logo is located inside div  with clss name "swiper-slide ".
+                    if you want to add more logos please keep the strcture of the swiper-slide as showen below
+
+
+                    -->
+                    <div class="swiper-slide">
+                        <div class="client-logo  "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/CE.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/IRStandard.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO14001-SGS.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO14001.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO45001-SGS.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO45001.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO9001.jpg" alt=" "></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  our-clients Section-->
+<!-- Start  blog Section-->
+<section class="blog blog-home mega-section  " id="blog">
+    <div class="container ">
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">نشریه</span>
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">آخرین ها از نشریه</h2>
+            </div>
+            <div class=" cta-area  cta-area  wow fadeInUp" data-wow-delay=".8s">
+                <a class="cta-btn btn-solid   cta-btn btn-solid  " href="/blog/index/0/نشریه پردیس بتن">مشاهده همه پست ها<i class="bi bi-arrow-left icon "></i></a>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-12 ">
+                <div class="posts-grid ">
+                    <div class="row">
+                        @await Component.InvokeAsync("Post", new { viewName = "LatestPosts", latestPostsCount = 6 })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  blog Section-->
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            moment.loadPersian({ usePersianDigits: true });
+            $(".post-date").each(function () {
+                var formattedDate = moment($(this).text()).format('dddd jD jMMMM jYYYY');
+                $(this).text(formattedDate);
+            });
+        })
+    </script>
+
+}

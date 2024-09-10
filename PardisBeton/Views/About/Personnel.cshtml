@@ -1,0 +1,124 @@
+﻿@using Model.ViewModels.About
+
+@model PersonnelViewModel
+
+
+@{
+    ViewData["Title"] = "پرسنل پردیس بتن";
+}
+
+@section Head {
+
+}
+
+
+<!-- Start inner Page hero -->
+<section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+    <div class="overlay-photo-image-bg-about parallax" data-bg-img="" data-bg-opacity="1"></div>
+    <div class="overlay-color" data-bg-opacity=".5"></div>
+    <div class="container">
+        <div class="hero-text-area centerd">
+            <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">پرسنل پردیس بتن</h1>
+            <nav aria-label="breadcrumb ">
+                <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/"><i class="bi bi-house icon "></i>خانه</a></li>
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/about"><i class="bi bi-house icon "></i>درباره پردیس بتن</a></li>
+                    <li class="breadcrumb-item active">پرسنل پردیس بتن</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- End inner Page hero -->
+<!-- Start  content Section-->
+<section class="team-member mt-5" id="">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3 mt-5 mb-5">
+                <div class="profile ">
+                    <div class="tm-img  ">
+                        <img class=" img-fluid " loading="lazy" src="~/@Model.ImagePath" alt="@Model.Name @Model.Family - پردیس بتن"/>
+                        </div>
+                    <div class="tm-details">
+                        <h6 class="name">
+                            @if (Model.Nickname != null && Model.Nickname != string.Empty)
+                            {
+                                <span>
+                                    @Model.Nickname
+                                </span>
+
+                            }
+                            else
+                            {
+                                <span>
+                                    @Model.Name @Model.Family
+                                </span>
+                            }
+
+                        </h6><span class="role">@Model.Position  </span>
+                    </div>
+             
+                </div>
+            </div>
+            <div class="col-lg-9 mt-5 mb-5">
+                @Html.Raw(Model.Description)
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- Start  our-clients Section-->
+<section class="our-clients  mega-section   wow fadeInUp pt-5 pb-5" id="our-clients" data-wow-delay="0.2s">
+    <div class="container">
+        <div class="sec-heading   centered ">
+            <div class="content-area">
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"></h2>
+            </div>
+        </div>
+        <div class=" clients-logos ">
+            <!--Swiper-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper clients-logo-wrapper wow fadeIn " data-wow-delay=".02s">
+                   
+                    <div class="swiper-slide">
+                        <div class="client-logo  "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/CE.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/IRStandard.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO14001-SGS.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO14001.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO45001-SGS.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO45001.jpg" alt=" "></a></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client-logo "><a href="#0"><img class="img-fluid logo " loading="lazy" src="~/images/home/standards/ISO9001.jpg" alt=" "></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  our-clients Section-->
+<!-- End  portfolio-slider Section-->
+<!-- Personnel start -->
+@await Component.InvokeAsync("About", new { viewName = "PersonnelList", selector = "personnel" })
+<!-- Personnel end -->
+@section Scripts {
+
+    <script>
+
+    </script>
+
+}

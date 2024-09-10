@@ -1,0 +1,96 @@
+﻿@using Model.ViewModels.About
+
+@model AboutViewModel
+
+
+
+
+@{
+    ViewData["Title"] = "ویرایش درباره ما";
+}
+
+@section Head {
+
+
+
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">درباره ما</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/admin">خانه</a></li>
+                    <li class="breadcrumb-item active">ویرایش درباره ما</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-outline card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            ویرایش اطلاعات درباره ما
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form asp-area="admin" asp-controller="adminabout" asp-action="EditAbout" enctype="multipart/form-data">
+                            <input asp-for="AboutId" type="hidden" />
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label asp-for="PageContent" class="control-label">شرح کامل</label>
+                                    <textarea asp-for="PageContent" class="form-control" id="description"></textarea>
+                                    @Html.Partial("_BootstrapGridModal")
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <input type="submit" value="دخیره" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+        </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            // Initialize the Summernote editor with a specific ID and upload URL
+            initializeSummernote('#description', '/admin/adminabout/uploadImage');
+            // Setup modal handlers with the same ID
+            setupGridModalHandlers('#description');
+
+        });
+    </script>
+}

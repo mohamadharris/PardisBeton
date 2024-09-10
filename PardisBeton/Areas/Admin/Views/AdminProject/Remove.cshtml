@@ -1,0 +1,149 @@
+﻿@using Model.ViewModels.Project
+
+@model ProjectViewModel
+
+
+@{
+    ViewData["Title"] = "حذف پروژه";
+}
+
+@section Head {
+
+
+
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">مدیریت پروژه ها</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/admin">خانه</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/adminproject">مدیریت پروژه ها</a></li>
+                    <li class="breadcrumb-item active">حذف پروژه</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card card-outline card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            حذف پروژه
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <h2>
+                                    پروژه: @Model.Name
+                                </h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p>
+                                            محل اجرا: @Model.Location
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>
+                                            کارفرما: @Model.Client
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="colm-md-12">
+                                        @Html.Raw(Model.Description)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                      
+                        <form asp-area="admin" asp-controller="adminproject" asp-action="Remove">
+                            <input asp-for="ProjectId" type="hidden" />
+                            
+                            <div class="form-group row align-items-center">
+                          
+                                <div class="col-md-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="chkConfirm">
+                                        <label class="form-check-label" for="chkConfirm">
+                                         از حذف اطلاعات این پروژه اطمینان دارم.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                   
+                            <div class="form-group">
+                                <input id="btnSubmit" type="submit" value="تأیید و حذف" class="btn btn-danger ml-5" disabled />
+                                <a href="/admin/adminproject" class="btn btn-secondary" >انصراف</a>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card card-outline card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            تصویر جاری پروژه
+
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 p-3">
+                                <img class="img-fluid" src="~/@Model.ImagePath" alt="thumb" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script>
+
+        $("#chkConfirm").click(function () {
+            if ($(this).is(':checked')) {
+                $('#btnSubmit').prop('disabled', false);
+            }
+            else {
+                $('#btnSubmit').prop('disabled', true);
+            }
+        });
+
+
+
+    </script>
+}

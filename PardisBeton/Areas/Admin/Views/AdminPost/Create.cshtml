@@ -1,0 +1,132 @@
+﻿@using Model.ViewModels.Post
+
+@model PostViewModel
+
+
+@{
+    ViewData["Title"] = "پست جدید";
+}
+
+@section Head {
+
+
+
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">مدیریت نشریه</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/admin">خانه</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/adminpost">مدیریت نشریه</a></li>
+                    <li class="breadcrumb-item active">پست جدید</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card card-outline card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            افزودن پست جدید
+
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form asp-area="admin" asp-controller="adminpost" asp-action="create" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="Active" value="true" />
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label asp-for="PostCategoryId" class="control-label">دسته بندی <span class="text-danger">*</span></label>
+                                    <select asp-for="PostCategoryId" asp-items="Model.Categories" class="form-control" ></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label asp-for="Title" class="control-label">عنوان پست <span class="text-danger">*</span></label>
+                                    <input asp-for="Title" class="form-control" />
+                                    <span asp-validation-for="Title" class="text-danger" />
+                                </div>                               
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label asp-for="ImageFile" class="control-label">تصویر <span class="text-danger">*</span></label>
+                                    <input asp-for="ImageFile" type="file" class="form-control" />
+                                    <span asp-validation-for="ImageFile" class="text-danger" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label asp-for="Summary" class="control-label">شرح خلاصه</label>
+                                    <textarea asp-for="Summary" type="text" class="form-control" rows="3"> </textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label asp-for="Description" class="control-label">شرح کامل</label>
+                                    <textarea asp-for="Description" class="form-control" id="description"></textarea>
+                                    <!-- Include the modal partial view -->
+                                    @Html.Partial("_BootstrapGridModal")
+
+                                </div>
+                            </div>           
+
+                            <div class="form-group">
+                                <input type="submit" value="ایجاد پست" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script>
+
+
+
+
+        $(document).ready(function () {
+            // Initialize the Summernote editor with a specific ID and upload URL
+            initializeSummernote('#description', '/admin/adminpost/UploadImage');
+            // Setup modal handlers with the same ID
+            setupGridModalHandlers('#description');
+
+
+        });
+
+    </script>
+}

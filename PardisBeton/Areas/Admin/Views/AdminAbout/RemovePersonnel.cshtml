@@ -1,0 +1,138 @@
+﻿@using Model.ViewModels.About
+
+@model PersonnelViewModel
+
+
+@{
+    ViewData["Title"] = "حذف پرسنل";
+}
+
+@section Head {
+
+
+
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">مدیریت پرسنل</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/admin">خانه</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/adminpersonnel">مدیریت پرسنل</a></li>
+                    <li class="breadcrumb-item active">حذف پرسنل</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card card-outline card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            حذف پرسنل
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="img-fluid" src="~/@Model.ImagePath" alt="thumb" />
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                @Model.Sex @Model.Name @Model.Family
+                                            </li>
+                                            <li class="list-group-item">
+                                                @Model.Position
+                                            </li>
+                                            <li class="list-group-item">
+                                                نام مستعار: @Model.Nickname
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-4 mb-4 p-2">
+                                @Model.Description
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <form asp-area="admin" asp-controller="adminabout" asp-action="RemovePersonnel">
+                                <input asp-for="PersonnelId" type="hidden" />
+
+                                <div class="form-group row align-items-center">
+
+                                    <div class="col-md-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="chkConfirm">
+                                            <label class="form-check-label" for="chkConfirm">
+                                                از حذف اطلاعات این پرسنل اطمینان دارم.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="btnSubmit" type="submit" value="تأیید و حذف" class="btn btn-danger ml-5" disabled />
+                                    <a href="/admin/adminabout/personnel" class="btn btn-secondary">انصراف</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script>
+
+        $("#chkConfirm").click(function () {
+            if ($(this).is(':checked')) {
+                $('#btnSubmit').prop('disabled', false);
+            }
+            else {
+                $('#btnSubmit').prop('disabled', true);
+            }
+        });
+
+
+
+    </script>
+}

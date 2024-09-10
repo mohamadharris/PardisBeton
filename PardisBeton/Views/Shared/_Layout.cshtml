@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - پردیس بتن</title>
+
+    <link rel="stylesheet" href="~/PardisBeton.styles.css" asp-append-version="true" />
+
+    <!-- bootstarp -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/bootstrap.min.css">
+
+    <!-- animate.css file -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/animate.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/swiper-bundle.min.css">
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/flaticon/flaticon.css">
+
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/all.min.css">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css">
+
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="~/lib/flex/css/vendors/jquery.fancybox.min.css">
+
+    <!-- main-RTL -->
+    <link rel="stylesheet" href="~/lib/flex/css/main-RTL.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="~/css/fonts.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
+
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+
+    @await RenderSectionAsync("Head", required: false)
+</head>
+<body class=" light-theme ">
+
+
+    <!-- Navbar Start-->
+
+    <header class=" page-header   header-basic" id="page-header">
+        <div class="header-search-box">
+            <div class="close-search"></div>
+            <form class="nav-search search-form" role="search" method="get" action="#">
+                <div class="search-wrapper">
+                    <label class="search-lbl">جستجو در پردیس بتن:</label>
+                    <input class="search-input" type="search" placeholder="جستجو..." name="searchInput" autofocus="autofocus" />
+                    <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <nav class="menu-navbar">
+                <div class="header-logo">
+                    <a class="logo-link" href="/">
+                        <img class="logo-img dark-logo" loading="lazy" src="~/images/Logo.png" alt="logo" />
+                        <img class="logo-img light-logo" loading="lazy" src="~/images/Logo.png" alt="logo" />
+
+                    </a>
+                </div>
+                <div class="links menu-wrapper ">
+                    <ul class="list-js links-list">
+                        <li class="menu-item"><a class="menu-link active " href="/">خانه </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="/about/index/1/بتن آماده پردیس بتن">درباره ما </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="/blog/index/0/نشریه پردیس بتن">نشریه پردیس بتن </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="/projects/index/0/پروژه های بتن ریزی پردیس بتن">پروژه ها </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="/contact/index/0/راه های تماس با پردیس بتن">تماس با ما </a></li>
+                    </ul>
+                </div>
+                <div class="controls-box">
+                    <!--Menu Toggler button-->
+                    <div class="control  menu-toggler"><span></span><span></span><span></span></div>
+                    <!--search Icon button-->
+                    @* <div class="control header-search-btn"><i class="bi bi-search icon"></i></div> *@
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!-- Navbar End-->
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+    <!-- Start  page-footer Section-->
+    <footer class="page-footer dark-color-footer" id="page-footer">
+        <div class="overlay-photo-image-bg" data-bg-img="" data-bg-opacity=".25"></div>
+        <div class="container">
+            <div class="row footer-cols">
+                <div class="col-12 col-md-8 col-lg-4  footer-col ">
+                    <img class="img-fluid footer-logo" loading="lazy" src="~/images/Logo_footer.png" alt="logo" />
+                    <div class="footer-col-content-wrapper">
+                        <p class="footer-text-about-us textJustify">
+                            پردیس بتن، ارائه دهنده خدمات بتن آماده و بتن ریزی با استفاده از دستگاه ها و ماشین آلات 
+                            پیشرفته و با امکان پمپاژ بتن تا چهل طبقه، واقع در نوشهر و تنکابن
+                        </p>
+                    </div>
+                   @*  <div class="form-area ">
+                        <div class="mailchimp-form ">
+                            <form class="one-field-form" method="post" action="#0">
+                                <div class="field-group ">
+                                    <label class="email-label" for="email-input"> عضویت رایگان در خبر نامه</label>
+                                    <input class="email-input " type="email" value="" name="EMAIL" id="email-input" placeholder="پست الکترونیک" autocomplete="off" />
+                                    <div class="cta-area">
+                                        <input class="btn-solid subscribe-btn" type="submit" value="عضویت" name="subscribe" />
+                                    </div>
+                                </div><span class="email-notice">* اطلاعات شما محرمانه است</span>
+                            </form>
+                        </div>
+                    </div> *@
+                </div>
+                <div class="col-6 col-lg-3  footer-col ">
+                    <h2 class=" footer-col-title    ">دسترسی سریع</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu ">
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-left icon "></i><a class="footer-menu-link" href="/">صفحه خانه</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-left icon "></i><a class="footer-menu-link" href="/projects/index/0/پروژه های بتن پردیس بتن">پروژه های پردیس بتن</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-left icon "></i><a class="footer-menu-link" href="/about/index/1/پردیس بتن نوشهر">معرفی پردیس بتن</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-left icon "></i><a class="footer-menu-link" href="/blog/index/0/اخبار بتن و مقالات بتن">نشریه پردیس بتن</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-left icon "></i><a class="footer-menu-link" href="/contact/index/0/آدرس و تلفن پردیس بتن">تماس با ما</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-12     col-lg-4 footer-col ">
+                    <h2 class=" footer-col-title    ">اطلاعات تماس</h2>
+                    <div class="footer-col-content-wrapper">
+                        <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a class="text-lowercase  info" href="mailto:info@pardisbeton.com">info@pardisbeton.com</a></div>
+                        <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span class="text-lowercase  info">نوشهر ـ کمربندی ـ شهرک صنعتی شهید ذوالفقاری (آبندانک)</span></div>
+                        <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info" href="#">09111914633 - 09116666114  </a></div>
+                        <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span class="text-lowercase  info">تنکابن ـ جاده نعمت آباد ـ روبروی سیرنگ</span></div>
+                        <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info" href="#">09111914633 - 091166661097  </a></div>
+                        <div class="contact-info-card">
+                            <div class="social-icons">
+                                <div class="sc-wrapper dir-row sc-size-32">
+                                    <ul class="sc-list">
+                                        <li class="sc-item " title="linkedin"><a class="sc-link" href="#0" title="لینکدین"><i class="fab fa-linkedin sc-icon"></i></a></li>
+                                        <li class="sc-item " title="telegram"><a class="sc-link" href="#0" title="تلگرام"><i class="fab fa-telegram sc-icon"></i></a></li>
+                                        <li class="sc-item " title="instagram"><a class="sc-link" href="https://instagram.com/pardis.beton" title="اینستاگرام"><i class="fab fa-instagram sc-icon"></i></a></li>
+                                        <li class="sc-item " title="X"><a class="sc-link" href="#0" title="ایکس"><i class="fab fa-x-twitter sc-icon"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-start">
+                        <p class="creadits">
+
+
+                            &copy; 2024 - 
+                            طراحی و توسعه: 
+
+                            <a class="link" href="https://tpjolge.ir">جلگه</a>
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End  page-footer Section-->
+  
+
+
+    <!-- Start loading-screen Component-->
+    <div class="loading-screen" id="loading-screen"><span class="bar top-bar">
+    </span><span class="bar down-bar"></span><span class="progress-line"></span>
+    <span class="loading-counter"> </span></div>
+    <!-- End loading-screen Component-->
+    <!-- Start back-to-top Button-->
+    <div class="back-to-top" id="back-to-top">
+        <i class="bi bi-chevron-up icon "></i>
+    </div>
+    <!-- End back-to-top Button--> 
+   <!-- Start whatsapp Button-->
+    <div class="wp-icon" id="wp-icon">
+        <a href="https://wa.me/+989116666826" target="_blank">
+            <i class="bi bi-whatsapp icon "></i>
+        </a>
+        
+    </div>
+    <!-- End bawhatsapp Button-->
+    
+    <!--     JQuery     -->
+    <script src="~/lib/flex/js/vendors/jquery-3.6.1.min.js"></script>
+
+    <!--     appear     -->
+    <script src="~/lib/flex/js/vendors/appear.min.js"></script>
+
+    <!--     bootstrap     -->
+    <script src="~/lib/flex/js/vendors/bootstrap.bundle.min.js"></script>
+
+    <!--     countTo     -->
+    <script src="~/lib/flex/js/vendors/jquery.countTo.js"></script>
+
+    <!--     wow     -->
+    <script src="~/lib/flex/js/vendors/wow.min.js"></script>
+
+    <!--     swiper     -->
+    <script src="~/lib/flex/js/vendors/swiper-bundle.min.js"></script>
+
+    <!--     particles     -->
+    <script src="~/lib/flex/js/vendors/particles.min.js"></script>
+
+    <!--     Vanilla-tilt     -->
+    <script src="~/lib/flex/js/vendors/vanilla-tilt.min.js"></script>
+
+    <!--     isotope     -->
+    <script src="~/lib/flex/js/vendors/isotope-min.js"></script>
+
+    <!--     fancybox     -->
+    <script src="~/lib/flex/js/vendors/jquery.fancybox.min.js"></script>
+
+<!-- Date-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-jalaali@0.9.2/build/moment-jalaali.js"></script>
+
+
+    <!--     main     -->
+    <script src="~/lib/flex/js/main.js"></script>
+    <script src="~/js/site.js"></script>
+    
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            var currentUrl = window.location.pathname.toLowerCase();
+
+            // Handle root URL case ("/" or empty)
+            if (currentUrl === "/" || currentUrl === "") {
+                $('.links-list .menu-item .menu-link[href="/"]').addClass('active');
+            } else {
+                $('.links-list .menu-item .menu-link').each(function () {
+                    var link = $(this).attr('href').toLowerCase().split("/")[1];
+
+                    if (currentUrl.includes(link) && link !== "/") {
+                        $('.links-list .menu-item .menu-link').removeClass('active');
+                        $(this).addClass('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

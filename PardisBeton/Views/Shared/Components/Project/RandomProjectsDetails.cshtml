@@ -1,0 +1,28 @@
+﻿@using Model.ViewModels.Project
+
+@model ProjectCollectionViewModel
+
+@{
+    var CurrentModel = Model.RandomProjects;
+}
+
+@{
+    foreach (var item in CurrentModel)
+    {
+        <div class="swiper-slide">
+            <div class="item   ">
+                <a class="portfolio-img-link" href="/projects/details/@item.ProjectId/@item.Name">
+                    <img class="portfolio-img   img-fluid " loading="lazy" src="~/@item.ImagePath" alt="@item.Name" />
+                </a>
+                <div class="item-info ">
+                    <h3 class="item-title">@item.Name</h3>
+                    <i class="bi bi-arrow-left icon "></i>
+                </div>
+            </div>
+        </div>
+
+       
+    }
+}
+
+

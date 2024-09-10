@@ -1,0 +1,163 @@
+﻿@using Model.ViewModels.Post
+
+@model PostViewModel
+
+
+@{
+    ViewData["Title"] = "حذف پست";
+}
+
+@section Head {
+
+
+
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">مدیریت نشریه</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="/admin">خانه</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/adminpost">مدیریت نشریه</a></li>
+                    <li class="breadcrumb-item active">حذف پروژه</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card card-outline card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            حذف پست
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <h2>
+                                    @Model.Title
+                                </h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p id="regDate">
+                                            تاریخ: @Model.RegDate
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>
+                                            دسته بندی: @Model.PostCategoryName
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="colm-md-12">
+                                        @Html.Raw(Model.Description)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <form asp-area="admin" asp-controller="adminpost" asp-action="Remove">
+                                <input asp-for="PostId" type="hidden" />
+
+                                <div class="form-group row align-items-center">
+
+                                    <div class="col-md-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="chkConfirm">
+                                            <label class="form-check-label" for="chkConfirm">
+                                                از حذف اطلاعات این پست اطمینان دارم.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="btnSubmit" type="submit" value="تأیید و حذف" class="btn btn-danger ml-5" disabled />
+                                    <a href="/admin/adminpost" class="btn btn-secondary">انصراف</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card card-outline card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            تصویر جاری پست
+
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 p-3">
+                                <img class="img-fluid" src="~/@Model.ImagePath" alt="thumb" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script>
+
+        $(document).ready(function(){
+            // Ensure Persian (Jalali) date support is loaded
+            moment.loadPersian({ usePersianDigits: true });
+
+            // Get the original Gregorian date from the paragraph
+            var gregorianDate = $('#regDate').text();
+
+            // Convert it to Jalali using moment-jalali
+            var jalaliDate = moment(gregorianDate).format('jYYYY/jMM/jDD');
+
+            // Set the converted date back to the paragraph
+            $('#regDate').text(jalaliDate);
+        })
+
+        $("#chkConfirm").click(function () {
+            if ($(this).is(':checked')) {
+                $('#btnSubmit').prop('disabled', false);
+            }
+            else {
+                $('#btnSubmit').prop('disabled', true);
+            }
+        });
+
+
+
+    </script>
+}

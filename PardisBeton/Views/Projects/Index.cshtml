@@ -1,0 +1,121 @@
+﻿@using Model.ViewModels.Project
+
+@model ProjectCollectionViewModel
+
+
+@{
+    ViewData["Title"] = "پروژه های بتن";
+    var currentModel = Model.Projects;
+}
+
+@section Head {
+
+}
+
+
+<!-- Start inner Page hero -->
+<section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+    <div class="overlay-photo-image-bg-project parallax" data-bg-img="" data-bg-opacity="1"></div>
+    <div class="overlay-color" data-bg-opacity=".3"></div>
+    <div class="container">
+        <div class="hero-text-area centerd">
+            <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">پروژه های پردیس بتن</h1>
+            <nav aria-label="breadcrumb ">
+                <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/"><i class="bi bi-house icon "></i>خانه</a></li>
+                    <li class="breadcrumb-item active">پروژه ها</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- End inner Page hero -->
+<!-- Start  portfolio-slider Section-->
+<section class="mt-5" id="">
+    <div class="container">
+
+
+
+        <div class="row " id="projects-container">
+
+            @foreach (var item in currentModel)
+            {
+                <div class="col-md-4 project-item mb-4">
+                    <div class="card">
+                        <img src="~/@item.ImagePath" alt="@item.Name" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Summary</p>
+                            <a href="/projects/details/@item.ProjectId/@item.Name" class="cta-btn btn-solid">اطلاعات بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+
+
+
+        <div class="text-center mt-4">
+            <button id="loadMore" class="cta-btn btn-solid" style="display: none;">نمایش پروژه های بیشتر</button>
+        </div>
+    </div>
+
+
+</section>
+<!-- End  portfolio-slider Section-->
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+
+            var $projectItems = $('.project-item');
+
+            $projectItems.each(function () {
+                var $this = $(this);
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            $this.addClass('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                observer.observe(this);
+            });
+
+
+
+            var skip = 12;
+            var take = 6;
+            
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 150) {
+                    $('#loadMore').fadeIn();
+                }
+            });
+
+            $('#loadMore').click(function () {
+               
+                $.ajax({
+                    url: '@Url.Action("LoadMoreProjects", "Projects")',
+                    type: 'GET',
+                    data: { skip: skip, take: take },
+                    success: function (data) {
+                        if (data.success == false) {
+                            $('#loadMore').text('تمام پروژه‌ها بارگذاری شده‌اند').prop('disabled', true).removeClass("cta-btn btn-solid").addClass("btn btn-secondary");
+                        } else {
+                            $('#projects-container').append(data);
+                            skip += take;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+}

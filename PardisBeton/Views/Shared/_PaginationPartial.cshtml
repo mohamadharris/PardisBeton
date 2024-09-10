@@ -1,0 +1,27 @@
+﻿@using Model.ViewModels.Post
+
+@model PostCollectionViewModel
+
+<div class="col-12">
+    <!--Start pagination-->
+    <nav class="ma-pagination">
+        <ul class="pagination justify-content-center">
+            <li class="ma-page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                <a class="ma-page-link" href="#" data-page="@Model.CurrentPage - 1" title="Previous Page">
+                    <i class="bi bi-chevron-right icon"></i>
+                </a>
+            </li>
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="ma-page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="ma-page-link" href="#posts-container" data-page="@i">@i</a>
+                </li>
+            }
+            <li class="ma-page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                <a class="ma-page-link" href="#" data-page="@Model.CurrentPage + 1" title="Next Page">
+                    <i class="bi bi-chevron-left icon"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

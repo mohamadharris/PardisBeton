@@ -1,0 +1,108 @@
+﻿@using Model.ViewModels.Project
+
+@model ProjectViewModel
+
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+@section Head {
+
+}
+
+
+<!-- Start inner Page hero -->
+<section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+    <div class="overlay-photo-image-bg-project parallax" data-bg-img="" data-bg-opacity="1"></div>
+    <div class="overlay-color" data-bg-opacity=".3"></div>
+    <div class="container">
+        <div class="hero-text-area centerd">
+            <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">@Model.Name</h1>
+            <nav aria-label="breadcrumb ">
+                <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/"><i class="bi bi-house icon "></i>خانه</a></li>
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="/Projects">پروژه ها</a></li>
+                    <li class="breadcrumb-item active">جزئیات پروژه</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- End inner Page hero -->
+<!-- Start Project Details Area -->
+<section class="portfolio-single mega-section">
+    <div class="container">
+
+        <div class="main-area">
+            <div class="row">
+                <div class="col-12 col-lg-9  ">
+
+                    <h3>
+                        پروژه @Model.Name
+                    </h3>
+                    <hr class="mb-4" />
+                    @Html.Raw(Model.Description)
+
+
+                    <div class="portfolio  portfolio-slider mt-5">
+                        <hr/>
+                        <h6 class="mb-3">
+                            سایر پروژه های پردیس بتن
+                        </h6>
+                        
+                        <!--Swiper-->
+                        <div class="swiper-container wow fadeIn" data-wow-delay=".5s">
+                            <div class="swiper-wrapper ">
+                                @await Component.InvokeAsync("Project", new {viewName = "RandomProjectsDetails", randomProjectsCount = 12 })
+                               
+                            </div>
+                            <div class="swiper-button-prev">
+                                <div class="right-arrow">
+                                    <i class="bi bi-chevron-right icon "></i>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next">
+                                <div class="left-arrow">
+                                    <i class="bi bi-chevron-left icon "></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3  ">
+                    <div class="info-area">
+                        <div class="project-info">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <div class="info">
+                                        <h5 class="title"> کارفرما</h5>
+                                        <p class="detail">@Model.Client</p><i class="fas fa-address-card icon"></i>
+                                    </div>
+                                </div> 
+                                <div class="col-12 col-lg-12">
+                                    <div class="info">
+                                        <h5 class="title"> محل اجرا</h5>
+                                        <p class="detail">@Model.Location</p><i class="fas fa-location icon"></i>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-12">
+                                    <div class="info">
+                                        <h5 class="title">دسته بندی</h5>
+                                        <p class="detail">پروژه های پردیس بتن</p><i class="fas fa-tasks icon"></i>
+                                    </div>
+                                </div>
+                           
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  Project Details Area-->
+@section Scripts {
+
+}

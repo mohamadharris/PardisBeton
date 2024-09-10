@@ -1,0 +1,37 @@
+﻿@using Model.ViewModels.Post
+
+@model PostCollectionViewModel
+
+@{
+    var currentModel = Model.Posts;
+}
+
+@foreach (var item in currentModel)
+{
+    <div class="col-12 ">
+        <div class="post-box">
+            <a class="post-link" href="/blog/details/@item.PostId/@item.Title" title="@item.Title ">
+                <div class="post-img-wrapper  ">
+                    <img class=" parallax-img   post-img" loading="lazy" src="~/@item.ImagePath" alt="@item.Title" />
+                    <span class="post-date">@item.RegDate </span></div>
+            </a>
+            <div class="post-summary">
+                <div class="post-info">
+                    <a class="info post-cat" href="#">
+                        <i class="bi bi-bookmark icon"></i>@item.PostCategoryName</a>
+                        <a class="info post-author" href="#"> <i class=" bi bi-person icon"></i>مدیر سایت</a></div>
+                <div class="post-text">
+                    <a class="post-link" href="/blog/details/@item.PostId/@item.Title">
+                        <h2 class="post-title"> @item.Title </h2>
+                    </a>
+                    <p class="post-excerpt">@item.Summary</p>
+                    <a class="read-more" href="/blog/details/@item.PostId/@item.Title" title="@item.Title ">مشاهده پست<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="pagination-container">
+    @Html.Partial("_PaginationPartial", Model)
+</div>

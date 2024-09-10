@@ -1,0 +1,31 @@
+﻿<!-- _BootstrapGridModal.cshtml -->
+<div class="modal fade" id="bootstrapGridModal" tabindex="-1" role="dialog" aria-labelledby="bootstrapGridModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bootstrapGridModalLabel">Configure Bootstrap Grid</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="columnCount">Number of Columns:</label>
+                    <select id="columnCount" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div id="columnSizes"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="insertGrid" class="btn btn-primary">Insert Grid</button>
+            </div>
+        </div>
+    </div>
+</div>

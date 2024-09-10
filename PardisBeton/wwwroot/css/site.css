@@ -1,0 +1,341 @@
+﻿body {
+    background-color: #eeecec;
+    direction: rtl;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: black;
+}
+
+    .navbar-brand img.logo {
+        width: 70px;
+    }
+
+.navbar.bg-transparent {
+    background-color: transparent !important;
+}
+
+.hero {
+    top: 0 !important;
+    height: 90vh;
+}
+
+    .hero .carousel-item {
+        top: 0;
+        height: 90vh;
+    }
+
+        .hero .carousel-item img {
+            object-fit: cover;
+            height: 90vh;
+            width: 100%;
+        }
+
+    .hero .carousel-caption {
+        top: 35vh;
+    }
+
+.btn {
+    border-radius: 0px;
+}
+
+.hero .carousel-indicators {
+    bottom: 10vh !important;
+}
+
+    .hero .carousel-indicators button {
+        width: 10vw;
+    }
+
+
+#heroCarousel{
+    top:0!important;
+}
+@media (max-width:576px) {
+    .hero {
+        top: 0 !important;
+        height: 80vh;
+    }
+
+        .hero .carousel-item {
+            top: 0;
+            height: 80vh;
+        }
+
+            .hero .carousel-item img {
+                height: 80vh;
+            }
+
+        .hero .carousel-caption {
+            top: 30vh;
+        }
+
+    .btn {
+        border-radius: 0px;
+    }
+
+    .hero .carousel-indicators {
+        bottom: 5vh !important;
+    }
+
+        .hero .carousel-indicators button {
+            width: 10vw;
+        }
+}
+
+.btn-primary {
+    background-color: #E58932;
+    border-color: #E58932;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Helper classes */
+
+/* Borders */
+.image-container {
+    display: inline-block;
+    position: relative;
+}
+
+    .image-container img {
+        display: block;
+        position: relative; /* تنظیم موقعیت relative برای تصویر */
+        z-index: 2; /* اطمینان از اینکه تصویر بالای ::before قرار می‌گیرد */
+        border-radius: 20px; /* گرد کردن گوشه‌های تصویر */
+    }
+
+    .image-container::before {
+        content: '';
+        position: absolute;
+        top: -15px; /* تنظیم فاصله نسبت به تصویر */
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        border-radius: 35px; /* گرد کردن گوشه‌های کادر */
+        background: linear-gradient(45deg, var(--bs-dark) 50%, var(--bs-primary) 50%);
+        z-index: 1; /* قرار دادن کادر پشت تصویر */
+    }
+
+.thumbnail-image-container {
+    display: inline-block;
+    position: relative;
+}
+
+    .thumbnail-image-container img {
+        display: block;
+        position: relative; /* تنظیم موقعیت relative برای تصویر */
+        z-index: 2; /* اطمینان از اینکه تصویر بالای ::before قرار می‌گیرد */
+        border-radius: 0px; /* گرد کردن گوشه‌های تصویر */
+        transition: transform 0.3s ease; /* اضافه کردن انیمیشن به تصویر */
+    }
+
+    .thumbnail-image-container::before {
+        content: '';
+        position: absolute;
+        top: 15px; /* تنظیم فاصله نسبت به تصویر */
+        left: -10px;
+        right: -10px;
+        bottom: 15px;
+        border-radius: 0px; /* گرد کردن گوشه‌های کادر */
+        background: linear-gradient(45deg, var(--bs-dark) 50%, var(--bs-primary) 50%);
+        z-index: 1; /* قرار دادن کادر پشت تصویر */
+        transition: opacity 0.3s ease; /* اضافه کردن انیمیشن به کادر */
+    }
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 3; /* اطمینان از اینکه متن بالای تصویر قرار می‌گیرد */
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+    background-color: rgba(255, 106, 0,0.3); /* پس‌زمینه نیمه شفاف برای متن */
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.thumbnail-image-container:hover img {
+    transform: scale(1.1); /* بزرگ کردن تصویر */
+}
+
+.thumbnail-image-container:hover::before {
+    opacity: 0; /* پنهان کردن کادر هنگام هاور */
+}
+
+.thumbnail-image-container .text-overlay p {
+    opacity: 0;
+    display: none;
+}
+
+.thumbnail-image-container:hover .text-overlay {
+    opacity: 1; /* نمایش متن هنگام هاور */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* بزرگتر کردن متن */
+    transform: scale(1.1);
+    background-color: var(--bs-dark);
+    color: var(--bs-primary);
+}
+
+    .thumbnail-image-container:hover .text-overlay p {
+        display: block;
+        position: absolute;
+        bottom: 15px;
+        opacity: 1;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+.thumbnail-image-container .text-overlay a {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    font-size: 11px;
+}
+
+.thumbnail-image-container:hover .text-overlay a {
+    display: block;
+    color: var(--bs-light);
+}
+
+@media (max-width: 576px) {
+    .image-container::before {
+        top: -5px; /* تنظیم فاصله نسبت به تصویر */
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 25px; /* گرد کردن گوشه‌های کادر */
+    }
+
+    .thumbnail-image-container::before {
+        top: 5px; /* تنظیم فاصله نسبت به تصویر */
+        left: -5px;
+        right: -5px;
+        bottom: 5px;
+        border-radius: 0px; /* گرد کردن گوشه‌های کادر */
+    }
+}
+/* Titles */
+.section-title {
+    color: var(--bs-primary);
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+}
+
+
+.dual-color-line {
+    position: relative;
+    height: 3px !important;
+    background: none;
+    border: none;
+    opacity: 1 !important;
+    margin: 0 !important;
+}
+
+    .dual-color-line::before,
+    .dual-color-line::after {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(45deg, var(--bs-dark) 50%, var(--bs-primary) 50%);
+        border-radius: 5px; /* گرد کردن گوشه‌های خط */
+        z-index: -1;
+    }
+
+    .dual-color-line::after {
+        transform: rotateY(180deg); /* برگرداندن رنگها برای خط دوم */
+    }
+
+/* Linings, paragraphs and justification */
+.lh1-2{
+    line-height:1.2;
+}
+.lh1-5{
+    line-height:1.5;
+}
+.lh-2 {
+    line-height: 2;
+}
+
+.textJustify {
+    text-align: justify;
+}
+
+
+
+/* Homepage resources */
+.resources {
+    background-color: var(--bs-dark);
+}
+
+
+/* Homepage news*/
+.news {
+}
+
+    .news p.newsSummary {
+        font-size: 11px;
+    }
+
+    .news a.readMore {
+        bottom: 5px;
+        font-size: 10px;
+    }
+
+
+.footerLogo {
+    width: 60px !important;
+}
+
+.footer ul {
+    list-style: none;
+    line-height: 2;
+    
+}
+.footer ul li a{
+color:var(--bs-light);
+}
+
+/*Font sizes*/
+.fSize10{
+    font-size:10px;
+}.fSize11{
+    font-size:11px;
+}.fSize12{
+    font-size:12px;
+}.fSize14{
+    font-size:14px;
+}.fSize16{
+    font-size:16px;
+}.fSize18{
+    font-size:18px;
+}.fSize20{
+    font-size:20px;
+}.fSize22{
+    font-size:22px;
+}.fSize24{
+    font-size:24px;
+}.fSize30{
+    font-size:30px;
+}.fSize36{
+    font-size:36px;
+}
